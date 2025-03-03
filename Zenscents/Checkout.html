@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Zenscents</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .checkout-container {
+            width: 70%;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .checkout-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        .order-summary {
+            margin-top: 20px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .total-section {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            width: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <h2 class="checkout-header">Checkout</h2>
+        
+        <!-- Shipping Information -->
+        <div class="input-group">
+            <label for="name">Full Name</label>
+            <input id="name" type="text" placeholder="Enter your full name" required>
+        </div>
+        <div class="input-group">
+            <label for="email">Email Address</label>
+            <input id="email" type="email" placeholder="Enter your email" required>
+        </div>
+        <div class="input-group">
+            <label for="address">Shipping Address</label>
+            <input id="address" type="text" placeholder="Enter your address" required>
+        </div>
+        
+        <!-- Payment Method -->
+        <div class="input-group payment-method">
+            <label for="payment-method">Payment Method: EFT</label>
+            <label for="bank-details">Banking Details</label>
+            <textarea id="bank-details" rows="3" readonly placeholder="Banking details will be provided here."></textarea>
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="terms-container">
+            <input type="checkbox" id="terms" required>
+            <label for="terms">I accept the Terms and Conditions</label>
+        </div>
+
+        <!-- Place Order Button -->
+        <button onclick="placeOrder()">Place Order</button>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <p>Product: 230ml Room Diffuser</p>
+            <p>Price: R199.00</p>
+            <p>VAT (15% included): R25.87</p>
+            <hr>
+            <p class="total-section">Total: R224.87</p>
+        </div>
+    </div>
+
+    <script>
+        function placeOrder() {
+            if (!document.getElementById('terms').checked) {
+                alert('You must accept the terms and conditions before placing an order.');
+                return;
+            }
+            alert('Order placed successfully! You will receive an email with payment details.');
+        }
+    </script>
+</body>
+</html>
